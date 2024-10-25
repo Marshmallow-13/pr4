@@ -1,0 +1,37 @@
+﻿<Window x:Class="pr4.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:pr4"
+        mc:Ignorable="d"
+        Title="Фракталы" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="Выберите фрактал:" FontSize="16" Margin="10"/>
+            <ComboBox x:Name="FractalComboBox" Margin="10">
+                <ComboBoxItem Content="Фрактальное дерево" Tag="Tree"/>
+                <ComboBoxItem Content="Ковёр Серпинского" Tag="Carpet"/>
+                <ComboBoxItem Content="Треугольник Серпинского" Tag="Triangle"/>
+                <ComboBoxItem Content="Кривая Коха" Tag="Koch"/>
+                <ComboBoxItem Content="Множество Кантора" Tag="Cantor"/>
+            </ComboBox>
+            <TextBlock Text="Глубина рекурсии:" FontSize="16" Margin="10"/>
+            <Slider x:Name="DepthSlider" Minimum="1" Maximum="8" Value="4" TickFrequency="1" TickPlacement="BottomRight" Margin="10" Width="200"/>
+            <TextBlock Text="Цвет:" FontSize="16" Margin="10"/>
+            <ComboBox x:Name="ColorComboBox" Margin="10">
+                <ComboBoxItem Content="Красный" Tag="Red"/>
+                <ComboBoxItem Content="Зелёный" Tag="Green"/>
+                <ComboBoxItem Content="Синий" Tag="Blue"/>
+                <ComboBoxItem Content="Чёрный" Tag="Black"/>
+                <ComboBoxItem Content="Фиолетовый" Tag="Purple"/>
+            </ComboBox>
+            <Button x:Name="DrawButton" Content="Рисовать" Margin="10" Click="DrawButton_Click"/>
+        </StackPanel>
+        <Canvas x:Name="FractalCanvas" Grid.Row="1" Background="White"/>
+    </Grid>
+</Window>
